@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 public class Alerts {
     WebDriver driver;
-    //update 01
+
     @AfterTest
     public void testName() throws InterruptedException {
         //Thread.sleep(3000); - NOT NEEDED
