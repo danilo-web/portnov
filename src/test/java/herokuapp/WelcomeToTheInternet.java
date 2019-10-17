@@ -1,3 +1,5 @@
+package herokuapp;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,7 +20,7 @@ public class WelcomeToTheInternet {
         System.setProperty("webdriver.gecko.driver", "C:\\Users\\danie\\IdeaProjects\\portnov\\src\\test\\resources\\drivers\\geckodriver.exe");
 
         startBrowserAndOpenPage2();
-        clickLink2();
+        openPageAddRemoveElements();
         addElement();
         verifyElements();
 //        verifyPage2();
@@ -26,9 +28,10 @@ public class WelcomeToTheInternet {
     }
 
     private void verifyElements() {
-        List<WebElement> listOfElements = driver.findElements(By.xpath("deleteElement()"));
-        int a = listOfElements.size();
-        System.out.println(listOfElements);
+        List<WebElement> listOfElements = driver.findElements(By.className("added-manually"));
+        int actual = listOfElements.size();
+        int expected = 2;
+        Assert.assertEquals(actual, expected, "Expected = " + expected + ". Actual = " + actual);
     }
 
     private void addElement(){ 
@@ -36,7 +39,7 @@ public class WelcomeToTheInternet {
         driver.findElement(By.xpath("//*[@id=\"content\"]/div/button")).click();
         driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
     }
-    private void clickLink2() {
+    private void openPageAddRemoveElements() {
         driver.findElement(By.xpath("//*[@id=\"content\"]/ul/li[2]/a")).click();
     }
 
