@@ -3,11 +3,13 @@ package herokuapp;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class BasicAuth {
-    WebDriver driver;
+    private WebDriver driver;
 
     @Test
     public void test001() {
@@ -15,13 +17,14 @@ public class BasicAuth {
 
         openBrowser();
         openPage();
-//        focusPopUp();
+        focusPopUp();
 //        typeWrongLoginPassword();
 //        submitLogin();
 //        veryfyBadLoginPage();
 //        goBackToLoginWindow();
 //        typeCorrectLoginPassword();
 //        veryfyCorrectLoginPage();
+        driver.quit();
 
     }
 
@@ -32,8 +35,13 @@ public class BasicAuth {
     }
 
     private void focusPopUp() {
-        driver.switchTo().alert().getText();
-        Alert alert = driver.switchTo().alert();
+
+        int actualSizeOfHandles =  driver.getWindowHandles().size();
+        System.out.println(actualSizeOfHandles);
+//        int expectedSizeOfHandles = 2;
+//        Assert.assertEquals(actualSizeOfHandles,expectedSizeOfHandles, "quantityOfHandles");
+        //driver.switchTo().alert().sendKeys("admin");
+
     }
 
     private void openPage() {

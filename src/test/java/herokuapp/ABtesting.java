@@ -31,7 +31,7 @@ public class ABtesting {
         WebElement webElement = driver.findElement(By.xpath("//*[@id=\"content\"]/div/h3"));
         String title = webElement.getText();
         System.out.println(title);
-        String expectedTitle = "A/B Test Control";
+        String expectedTitle = "A/B Test Variation 1";  // or "A/B Test Control"
         Assert.assertEquals(title, expectedTitle);
     }
 
